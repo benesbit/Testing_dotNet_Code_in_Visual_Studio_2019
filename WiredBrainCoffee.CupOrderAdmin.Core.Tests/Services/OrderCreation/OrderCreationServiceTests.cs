@@ -29,5 +29,11 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
             Assert.IsNotNull(orderCreationResult.CreatedOrder);
             Assert.AreEqual(customer.Id, orderCreationResult.CreatedOrder.CustomerId);
         }
+
+        [TestMethod]
+        public void ShouldStoreRemainingCupsInStockInOrderCreationResult()
+        {
+
+        }
     }
 }
