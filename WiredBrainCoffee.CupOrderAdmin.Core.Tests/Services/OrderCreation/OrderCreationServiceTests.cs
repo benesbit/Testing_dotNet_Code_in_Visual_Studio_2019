@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
 {
-    class OrderCreationServiceTests
+    [TestClass]
+    public class OrderCreationServiceTests
     {
+        [TestMethod]
+        public void ShouldStoreCreatedOrderInOrderCreationResult()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
