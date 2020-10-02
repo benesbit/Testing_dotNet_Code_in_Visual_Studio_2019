@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WiredBrainCoffee.CupOrderAd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiredBrainCoffee.CupOrderAdmin.Core.Tests", "WiredBrainCoffee.CupOrderAdmin.Core.Tests\WiredBrainCoffee.CupOrderAdmin.Core.Tests.csproj", "{E01C3671-B651-4AB6-973E-6176DC2B83C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{48C98B47-6057-4744-836B-3E331722CC4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E01C3671-B651-4AB6-973E-6176DC2B83C3} = {48C98B47-6057-4744-836B-3E331722CC4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F5EA677-63B4-4034-9427-D542C8F2E0C5}
