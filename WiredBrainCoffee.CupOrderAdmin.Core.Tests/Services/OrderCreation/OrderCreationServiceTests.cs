@@ -17,7 +17,7 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
             var orderRepositoryMock = new Mock<IOrderRepository>();
             var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
 
-            var orderCreationService = new OrderCreationService(null, null);
+            var orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
 
             var numberOfOrderedCups = 1;
             var customer = new Customer { Id = 99 };
