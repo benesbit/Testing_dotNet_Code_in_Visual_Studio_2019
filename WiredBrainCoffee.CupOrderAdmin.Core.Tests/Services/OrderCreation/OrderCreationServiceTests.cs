@@ -12,14 +12,18 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
     public class OrderCreationServiceTests
     {
         private OrderCreationService _orderCreationService;
+        private int _numberOfCupsInStock;
 
         [TestInitialize]
         public void TestInitialize()
         {
+            _numberOfCupsInStock = 10;
+
             var orderRepositoryMock = new Mock<IOrderRepository>();
             orderRepositoryMock.Setup(x => x.SaveAsync(It.IsAny<Order>())).ReturnsAsync((Order x) => x);
 
             var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
+            coffeeCupRepositoryMock.Setup(x => x.GetCoffeeCupsInStockCountAsync()).ReturnsAsync(_numberOfCupsInStock);
 
             _orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
         }
@@ -41,11 +45,13 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         public async Task ShouldStoreRemainingCupsInStockInOrderCreationResult()
         {
             var numberOfOrderedCups = 3;
+            var expectedRemainingCupsInStock = _numberOfCupsInStock - numberOfOrderedCups;
             var customer = new Customer ();
 
             var orderCreationResult = await _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
 
             Assert.AreEqual(OrderCreationResultCode.Success, orderCreationResult.ResultCode);
+            Assert.AreEqual(expectedRemainingCupsInStock, orderCreationResult.RemainingCupsInStock);
         }
     }
 }
