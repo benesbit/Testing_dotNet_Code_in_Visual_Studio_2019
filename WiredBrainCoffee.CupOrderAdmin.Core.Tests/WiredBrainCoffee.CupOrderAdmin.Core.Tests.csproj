@@ -13,4 +13,8 @@
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WiredBrainCoffee.CupOrderAdmin.Core\WiredBrainCoffee.CupOrderAdmin.Core.csproj" />
+  </ItemGroup>
+
 </Project>
