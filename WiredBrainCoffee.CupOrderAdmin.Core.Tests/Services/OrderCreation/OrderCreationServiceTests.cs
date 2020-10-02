@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using WiredBrainCoffee.CupOrderAdmin.Core.Model;
+using WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation;
 
 namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
 {
@@ -7,9 +9,14 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
     public class OrderCreationServiceTests
     {
         [TestMethod]
-        public void ShouldStoreCreatedOrderInOrderCreationResult()
+        public async void ShouldStoreCreatedOrderInOrderCreationResult()
         {
-            throw new NotImplementedException();
+            var orderCreationService = new OrderCreationService(null, null);
+
+            var numberOfOrderedCups = 1;
+            var customer = new Customer();
+
+            var orderCreationResult = await orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
         }
     }
 }
