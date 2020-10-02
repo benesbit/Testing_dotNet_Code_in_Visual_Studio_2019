@@ -15,6 +15,7 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         public async Task ShouldStoreCreatedOrderInOrderCreationResult()
         {
             var orderRepositoryMock = new Mock<IOrderRepository>();
+            orderRepositoryMock.Setup(x => x.SaveAsync(It.IsAny<Order>())).ReturnsAsync((Order x) => x);
             var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
 
             var orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
