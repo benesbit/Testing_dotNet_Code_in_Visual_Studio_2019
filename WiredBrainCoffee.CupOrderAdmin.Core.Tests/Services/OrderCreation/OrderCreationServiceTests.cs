@@ -11,15 +11,18 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
     [TestClass]
     public class OrderCreationServiceTests
     {
-        [TestMethod]
-        public async Task ShouldStoreCreatedOrderInOrderCreationResult()
+        public void TestInitialize()
         {
             var orderRepositoryMock = new Mock<IOrderRepository>();
             orderRepositoryMock.Setup(x => x.SaveAsync(It.IsAny<Order>())).ReturnsAsync((Order x) => x);
+
             var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
 
             var orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
-
+        }
+        [TestMethod]
+        public async Task ShouldStoreCreatedOrderInOrderCreationResult()
+        {
             var numberOfOrderedCups = 1;
             var customer = new Customer { Id = 99 };
 
