@@ -11,6 +11,9 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
     [TestClass]
     public class OrderCreationServiceTests
     {
+        private OrderCreationService _orderCreationService;
+
+        [TestInitialize]
         public void TestInitialize()
         {
             var orderRepositoryMock = new Mock<IOrderRepository>();
@@ -18,15 +21,16 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
 
             var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
 
-            var orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
+            _orderCreationService = new OrderCreationService(orderRepositoryMock.Object, coffeeCupRepositoryMock.Object);
         }
+
         [TestMethod]
         public async Task ShouldStoreCreatedOrderInOrderCreationResult()
         {
             var numberOfOrderedCups = 1;
             var customer = new Customer { Id = 99 };
 
-            var orderCreationResult = await orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
+            var orderCreationResult = await _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
 
             Assert.AreEqual(OrderCreationResultCode.Success, orderCreationResult.ResultCode);
             Assert.IsNotNull(orderCreationResult.CreatedOrder);
