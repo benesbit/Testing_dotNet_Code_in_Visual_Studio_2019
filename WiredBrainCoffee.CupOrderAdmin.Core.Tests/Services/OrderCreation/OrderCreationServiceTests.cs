@@ -38,9 +38,14 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         }
 
         [TestMethod]
-        public void ShouldStoreRemainingCupsInStockInOrderCreationResult()
+        public async Task ShouldStoreRemainingCupsInStockInOrderCreationResult()
         {
+            var numberOfOrderedCups = 3;
+            var customer = new Customer ();
 
+            var orderCreationResult = await _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
+
+            Assert.AreEqual(OrderCreationResultCode.Success, orderCreationResult.ResultCode);
         }
     }
 }
