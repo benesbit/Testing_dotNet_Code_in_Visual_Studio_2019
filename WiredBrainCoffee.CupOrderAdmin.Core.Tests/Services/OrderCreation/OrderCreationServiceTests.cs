@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Threading.Tasks;
+using WiredBrainCoffee.CupOrderAdmin.Core.DataInterfaces;
 using WiredBrainCoffee.CupOrderAdmin.Core.Model;
 using WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation;
 
@@ -12,6 +14,9 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         [TestMethod]
         public async Task ShouldStoreCreatedOrderInOrderCreationResult()
         {
+            var orderRepositoryMock = new Mock<IOrderRepository>();
+            var coffeeCupRepositoryMock = new Mock<ICoffeeCupRepository>();
+
             var orderCreationService = new OrderCreationService(null, null);
 
             var numberOfOrderedCups = 1;
