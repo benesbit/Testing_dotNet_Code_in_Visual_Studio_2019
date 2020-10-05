@@ -69,6 +69,8 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation
         {
             var discountInPercent = 0.0;
 
+            discountInPercent = 3;
+
             // TODO: Calculate discount in percent
             //
             //       Rules:
