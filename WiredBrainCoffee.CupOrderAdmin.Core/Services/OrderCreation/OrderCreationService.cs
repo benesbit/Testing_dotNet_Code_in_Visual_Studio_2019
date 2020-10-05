@@ -42,6 +42,14 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation
                     RemainingCupsInStock = numberOfCupsInStock - numberOfOrderedCups
                 };
             }
+            else
+            {
+                result = new OrderCreationResult
+                {
+                    ResultCode = OrderCreationResultCode.StockExceeded,
+                    RemainingCupsInStock = numberOfCupsInStock,
+                };
+            }
 
             return result;
         }
