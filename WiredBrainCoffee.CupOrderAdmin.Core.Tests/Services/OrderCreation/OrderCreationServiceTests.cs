@@ -53,5 +53,18 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
             Assert.AreEqual(OrderCreationResultCode.Success, orderCreationResult.ResultCode);
             Assert.AreEqual(expectedRemainingCupsInStock, orderCreationResult.RemainingCupsInStock);
         }
+
+        [TestMethod]    
+        public async Task ShouldReturnStockExceededResultIfNotEnoughCupsInStock()
+        {
+            var numberOfOrderedCups = _numberOfCupsInStock + 1;
+            var customer = new Customer();
+
+            var orderCreationResult =
+                await _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups);
+
+            Assert.AreEqual(OrderCreationResultCode.StockExceeded, orderCreationResult.ResultCode);
+            Assert.AreEqual(_numberOfCupsInStock, orderCreationResult.RemainingCupsInStock);
+        }
     }
 }
