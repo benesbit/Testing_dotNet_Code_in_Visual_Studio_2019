@@ -23,16 +23,16 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation
         public async Task<OrderCreationResult> CreateOrderAsync(Customer customer,
           int numberOfOrderedCups)
         {
-            if (numberOfOrderedCups < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(numberOfOrderedCups),
-                    $"{nameof(numberOfOrderedCups)} must be greater than zero!");
-            }
-
             if (customer == null)
             {
                 throw new ArgumentNullException(nameof(customer),
                     $"{nameof(customer)} must not be null");
+            }
+
+            if (numberOfOrderedCups < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfOrderedCups),
+                    $"{nameof(numberOfOrderedCups)} must be greater than zero!");
             }
 
             OrderCreationResult result;
