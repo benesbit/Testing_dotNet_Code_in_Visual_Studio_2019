@@ -66,5 +66,17 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
             Assert.AreEqual(OrderCreationResultCode.StockExceeded, orderCreationResult.ResultCode);
             Assert.AreEqual(_numberOfCupsInStock, orderCreationResult.RemainingCupsInStock);
         }
+
+        [TestMethod]
+        public void ShouldThrowExceptionIfNumberOfOrderedCupsIsLessThanOne()
+        {
+
+        }
+
+        [TestMethod]
+        public void ShouldThrowExceptionIfCustomerIsNull()
+        {
+
+        }
     }
 }
