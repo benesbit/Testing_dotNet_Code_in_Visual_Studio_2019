@@ -80,9 +80,15 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         }
 
         [TestMethod]
-        public void ShouldThrowExceptionIfCustomerIsNull()
+        public async Task ShouldThrowExceptionIfCustomerIsNull()
         {
+            var numberOfOrderedCups = 1;
+            Customer customer = null;
 
+            var exception = await Assert.ThrowsExceptionAsync<ArgumentNullException>(
+                () => _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups));
+
+            Assert.AreEqual("customer", exception.ParamName);
         }
     }
 }
