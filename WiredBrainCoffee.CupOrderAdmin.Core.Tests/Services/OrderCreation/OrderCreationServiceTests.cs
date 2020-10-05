@@ -68,9 +68,15 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
         }
 
         [TestMethod]
-        public void ShouldThrowExceptionIfNumberOfOrderedCupsIsLessThanOne()
+        public async Task ShouldThrowExceptionIfNumberOfOrderedCupsIsLessThanOne()
         {
+            var numberOfOrderedCups = 0;
+            var customer = new Customer();
 
+            var exception = await Assert.ThrowsExceptionAsync<ArgumentOutOfRangeException>(
+                () => _orderCreationService.CreateOrderAsync(customer, numberOfOrderedCups));
+
+            Assert.AreEqual("numberOfOrderedCups", exception.ParamName);
         }
 
         [TestMethod]
