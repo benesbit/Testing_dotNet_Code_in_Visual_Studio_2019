@@ -29,6 +29,12 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation
                     $"{nameof(numberOfOrderedCups)} must be greater than zero!");
             }
 
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer),
+                    $"{nameof(customer)} must not be null");
+            }
+
             OrderCreationResult result;
 
             var numberOfCupsInStock = await _coffeeCupRepository.GetCoffeeCupsInStockCountAsync();
