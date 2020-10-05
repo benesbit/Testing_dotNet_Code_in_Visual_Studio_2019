@@ -74,7 +74,7 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Services.OrderCreation
                 discountInPercent = 3;
             }
 
-            if(membership == CustomerMembership.Premium)
+            if (membership == CustomerMembership.Premium)
             {
                 discountInPercent += 5;
             }
