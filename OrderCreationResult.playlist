@@ -1,1 +1,4 @@
-<Playlist Version="1.0"><Add Test="WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation.OrderCreationServiceTests.ShouldStoreCreatedOrderInOrderCreationResult" /><Add Test="WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation.OrderCreationServiceTests.ShouldStoreRemainingCupsInStockInOrderCreationResult" /></Playlist>
+<Playlist Version="1.0">
+  <Add Test="WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation.OrderCreationServiceTests.ShouldStoreCreatedOrderInOrderCreationResult" />
+  <Add Test="WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation.OrderCreationServiceTests.ShouldStoreRemainingCupsInStockInOrderCreationResult" />
+</Playlist>
