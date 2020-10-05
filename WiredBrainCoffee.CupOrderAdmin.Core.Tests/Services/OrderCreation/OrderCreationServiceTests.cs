@@ -94,7 +94,7 @@ namespace WiredBrainCoffee.CupOrderAdmin.Core.Tests.Services.OrderCreation
 
         [DataTestMethod]
         [DataRow(3, 5, CustomerMembership.Basic)]
-        [DataRow(0,4, CustomerMembership.Basic)]
+        [DataRow(0, 4, CustomerMembership.Basic)]
         [DataRow(8, 5, CustomerMembership.Premium)]
         [DataRow(5, 4, CustomerMembership.Premium)]
         public async Task ShouldCalculateCorrectDiscountPercentage(
